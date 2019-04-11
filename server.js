@@ -62,7 +62,7 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'alfie_owens' && password === 'stormageddon') {
+  if (username === 'username' && password === 'password') {
     req.loggedIn = true;
     res.status(200).json({
       payload: token
@@ -126,7 +126,7 @@ app.delete('/api/friends/:id', authenticator, (req, res) => {
 });
 
 function getNextId() {
-  return nextId + 1;
+  return nextId++;
 }
 
 app.listen(port, () => {

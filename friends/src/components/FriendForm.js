@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addFriend } from '../actions';
 
 class FriendForm extends React.Component {
   constructor(props) {
@@ -12,29 +14,23 @@ class FriendForm extends React.Component {
     }
   }
 
-  componentDidMount() {
-    
-  }
+  // componentDidMount() {}
 
   handleChanges = e => {
-    e.target.name === 'age'
-      ? this.setState(prevState => ({
-        friend: {
-          ...prevState.friend,
-          [e.target.name]: Number(e.target.value)
-        }
-      }))
-      : this.setState(prevState => ({
-        friend: {
-          ...prevState.friend,
-          [e.target.name]: e.target.value
-        }
-      }));
-  }
+    this.setState({
+      friend: {
+        ...this.state.friend,
+        [e.target.name]: e.target.value,
+      }
+    });
+  };
 
   handleSubmit = e => {
     e.preventDefault();
-    // submit
+    this.props.addFriend(this.state.friend)
+      .then(() => {
+        this.props.history.push('/');
+      });
     this.setState({
       friend: {
         name: '',
@@ -77,4 +73,4 @@ class FriendForm extends React.Component {
   }
 }
 
-export default FriendForm;
+export default connect(null, { addFriend })(FriendForm);
