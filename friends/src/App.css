@@ -13,7 +13,11 @@ h2 {
   margin: 0.5em 0;
 }
 
-.Login {
+button {
+  cursor: pointer;
+}
+
+form {
   background: #DDDDDD;
   display: flex;
   flex-direction: column;
@@ -23,9 +27,20 @@ h2 {
   border-radius: 0.5rem;
 }
 
-.Login>* {
+form>* {
   padding: 1rem;
   margin: 1rem;
+}
+
+form button {
+  background: royalblue;
+  color: white;
+  border: 0;
+  border-radius: 0.5rem;
+}
+
+form button:hover {
+  background: cornflowerblue;
 }
 
 .FriendsList ul {

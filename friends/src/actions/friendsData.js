@@ -1,4 +1,3 @@
-import axios from 'axios';
 import axiosWithAuth from '../utils/axiosAuth';
 
 export const FETCH_FRIENDS_START = 'FETCH_FRIENDS_START';

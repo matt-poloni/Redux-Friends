@@ -11,9 +11,11 @@ class FriendsList extends React.Component {
     return (
       <div className='FriendsList'>
         <h2>Your Friends</h2>
-        <ul className='friends-list'>
-          {this.props.friends.map(friend => <li key={friend.id}>{friend.name} ({friend.age}): {friend.email}</li>)}
-        </ul>
+        {this.props.fetchingFriends
+          ? <h3>Loading Friends...</h3>
+          : <ul className='friends-list'>
+              {this.props.friends.map(friend => <li key={friend.id}>{friend.name} ({friend.age}): {friend.email}</li>)}
+            </ul>}
       </div>
     );
   }
