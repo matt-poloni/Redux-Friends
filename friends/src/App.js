@@ -9,14 +9,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Route
+          path="/login"
+          component={Login}
+        />
         <PrivateRoute
           exact
           path="/"
           component={FriendsList}
-        />
-        <Route
-          path="/login"
-          component={Login}
         />
       </div>
     );
